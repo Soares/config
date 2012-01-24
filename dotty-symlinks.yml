@@ -1,0 +1,3 @@
+executable: .exe
+terminator.config: .config/terminator/config
+git-template: .config/git-template
