@@ -1,0 +1,6 @@
+#!/usr/bin/ruby
+
+terms = `ps -u nate | grep terminator`
+if terms == ''
+	`terminator`
+end

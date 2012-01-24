@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+sudo -v
+(xlock -mode blank &) && sudo s2ram && /home/nate/.fehbg
