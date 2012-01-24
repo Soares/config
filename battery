@@ -1,5 +1,0 @@
-#!/usr/bin/env ruby
-
-output = `acpi -b`
-life = Integer output.split(",")[1].strip()[0..-2]
-puts "#{life}"
