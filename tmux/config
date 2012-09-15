@@ -1,0 +1,37 @@
+setw -g utf8 on
+set -g status off
+set -g mode-keys vi
+set -g default-terminal "tmux"
+
+bind-key '\;' command-prompt
+bind-key '@' last-pane
+
+# More vim-like window management
+unbind-key c
+bind-key n set-option quiet on\; set default-path $PWD \; new-window
+bind - set-option quiet on\; set default-path $PWD \; split-window
+bind | set-option quiet on\; set default-path $PWD \; split-window -h
+bind-key space next-window
+bind-key C-space previous-window
+bind-key h select-pane -L
+bind-key l select-pane -R
+bind-key j select-pane -U
+bind-key k select-pane -D
+
+unbind-key [
+bind-key c copy-mode
+bind-key p paste-buffer
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy V rectangle-toggle
+bind-key -t vi-copy y copy-selection
+bind v run "xclip -o -selection buffer-cut | tmux load-buffer -; tmux paste-buffer"
+bind y run "tmux save-buffer - | xclip -selection buffer-cut; tmux save-buffer - | xclip -selection clipboard; tmux save-buffer - | xclip"
+bind-key -t vi-edit C-u delete-line
+
+# MAC ONLY
+# set-option -g default-command "reattach-to-user-namespace -l zsh"
+
+set-option -ga update-environment ' TERMINAL_THEME'
+
+# TODO: Think about mouse mode
+# setw -g mode-mouse on

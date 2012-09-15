@@ -1,0 +1,7 @@
+*.bak
+*.pyc
+*~
+dist/
+log
+log/
+tags

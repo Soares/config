@@ -1,0 +1,17 @@
+bind_to_address         "any"
+port                    "6600"
+music_directory         "~/Media/Music"
+playlist_directory      "~/.config/mpd/playlists"
+db_file                 "~/.config/mpd/mpd.db"
+log_file                "~/.config/mpd/mpd.log"
+pid_file                "~/.config/mpd/pid"
+audio_output {
+    type                "alsa"
+    name                "ALSA device"
+}
+audio_output {
+    type                "fifo"
+    name                "Frequency Decomposing Transform"
+    path                "/tmp/mpd.fifo"
+    format              "44100:16:2"
+}
