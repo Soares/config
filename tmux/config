@@ -1,7 +1,8 @@
 setw -g utf8 on
 set -g status off
 set -g mode-keys vi
-set -g default-terminal "tmux"
+# set -g default-terminal "tmux"
+set -g default-shell /usr/local/bin/fish
 
 bind-key '\;' command-prompt
 bind-key '@' last-pane
@@ -11,8 +12,8 @@ unbind-key [
 
 # More vim-like window management
 bind-key n new-window
-bind-key - split-window
-bind-key | split-window -h
+bind-key s split-window
+bind-key v split-window -h
 bind-key space next-window
 bind-key C-space previous-window
 bind-key h select-pane -L
@@ -37,6 +38,4 @@ bind C-p run "tmux set-buffer \"$(xsel -ob)\"; tmux paste-buffer"
 bind C-y run "tmux show-buffer | xsel -ib"
 
 # MAC ONLY
-# set-option -g default-command "reattach-to-user-namespace -l zsh"
-
-set-option -ga update-environment ' TERMINAL_THEME'
+set-option -g default-command "reattach-to-user-namespace -l fish"
